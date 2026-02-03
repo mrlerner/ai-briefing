@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Engineering Briefing - February 03, 2026</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            margin: 0;
+            padding: 16px;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+        .container { max-width: 700px; margin: 0 auto; }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin: 0 0 8px 0;
+            color: #58a6ff;
+        }
+        .subtitle {
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        /* TOC */
+        .toc {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+        .toc h2 {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .toc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toc-icon {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+        .toc-link {
+            color: #58a6ff;
+            text-decoration: none;
+            flex-grow: 1;
+        }
+        .toc-link:hover { text-decoration: underline; }
+        .toc-count {
+            color: #8b949e;
+            font-size: 13px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 32px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 16px;
+            position: sticky;
+            top: 0;
+            background: #0d1117;
+            z-index: 10;
+        }
+        .section-icon { font-size: 20px; }
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            color: #e6edf3;
+        }
+        .section-count {
+            color: #8b949e;
+            font-size: 13px;
+            margin-left: auto;
+        }
+
+        /* Cards */
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 10px;
+        }
+        .card:hover {
+            border-color: #58a6ff;
+        }
+
+        /* Tweet specific */
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .tweet-rank {
+            background: #1da1f2;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 11px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .tweet-author {
+            flex-grow: 1;
+        }
+        .tweet-name {
+            font-weight: 600;
+            color: #e6edf3;
+        }
+        .tweet-handle {
+            color: #8b949e;
+            font-size: 13px;
+        }
+        .tweet-handle a {
+            color: #8b949e;
+            text-decoration: none;
+        }
+        .tweet-handle a:hover { text-decoration: underline; }
+        .tweet-text {
+            margin-bottom: 10px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .tweet-engagement {
+            display: flex;
+            gap: 16px;
+            color: #8b949e;
+            font-size: 12px;
+        }
+        .tweet-link {
+            color: #58a6ff;
+            text-decoration: none;
+            font-size: 12px;
+            margin-top: 8px;
+            display: inline-block;
+        }
+
+        /* HN/Reddit specific */
+        .post-rank {
+            background: #ff6600;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 11px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .post-rank.reddit {
+            background: #ff4500;
+        }
+        .post-title {
+            font-weight: 600;
+            color: #e6edf3;
+            margin-bottom: 6px;
+        }
+        .post-title a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .post-title a:hover { text-decoration: underline; }
+        .post-meta {
+            color: #8b949e;
+            font-size: 12px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .post-meta a {
+            color: #8b949e;
+            text-decoration: none;
+        }
+        .post-meta a:hover { text-decoration: underline; }
+        .subreddit {
+            color: #58a6ff;
+        }
+
+        /* Back to top */
+        .back-to-top {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #30363d;
+            margin-top: 20px;
+        }
+        .back-to-top a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header id="top">
+            <h1>AI Engineering Briefing</h1>
+            <div class="subtitle">February 03, 2026 at 12:45</div>
+        </header>
+
+        <nav class="toc">
+            <h2>Contents</h2>
+            <div class="toc-list">
+                <div class="toc-item">
+                    <span class="toc-icon">🐦</span>
+                    <a href="#twitter" class="toc-link">Twitter</a>
+                    <span class="toc-count">165 tweets</span>
+                </div>
+                <div class="toc-item">
+                    <span class="toc-icon">🟠</span>
+                    <a href="#hackernews" class="toc-link">Hacker News</a>
+                    <span class="toc-count">190 posts</span>
+                </div>
+                <div class="toc-item">
+                    <span class="toc-icon">🔵</span>
+                    <a href="#reddit" class="toc-link">Reddit</a>
+                    <span class="toc-count">174 posts</span>
+                </div>
+            </div>
+        </nav>
+
+        <section class="section" id="twitter">
+            <div class="section-header">
+                <span class="section-icon">🐦</span>
+                <h2 class="section-title">Twitter</h2>
+                <span class="section-count">Top 20 by engagement</span>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">1</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">Yuri Misnik, CTO at InDrive, on Architecting an AI-First Super App | HackerNoon Meet Yuri Misnik, Chief Technology Officer at inDrive. hackernoon.com</div>
+                        <div class="tweet-handle"><a href="https://x.com/hackernoon" target="_blank">@hackernoon</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">&quot;, shares his leadership principles, AI insights, and strategies for building lean, impactful teams. Read the full interview:&quot;</div>
+                <div class="tweet-engagement">
+                    <span>💬 0</span>
+                    <span>🔁 6</span>
+                    <span>❤️ 51</span>
+                    <span>👁️ 122,782</span>
+                </div>
+                <a href="https://x.com/hackernoon/status/2018327264308392051" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">2</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">Jan 11</div>
+                        <div class="tweet-handle"><a href="https://x.com/Khulood_Almani" target="_blank">@Khulood_Almani</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">&quot;skills are no longer linear they’re growing like an ecosystem. 🌳 From prompting basics ➜ automation ➜ context engineering ➜ content creation ➜ leadership, the real advantage no longer comes from using AI tools, it comes from understanding how these skills connect and compound. 💡 The AI Skill Tree makes one thing clear: ➡️ It’s not about chasing features ➡️ It’s about building systems of thinking, execution &amp; decision-making powered by AI 💥 The professionals leading in 2026 are the ones who: ➊ Combine technical fluency with business judgment ➋ Design workflows, not just prompts ➌ Lead humans ➕ AI together ➍ Turn AI into a strategic advantage No hacks. No hype. Just skills that compound. 🌱 Save this if you’re planning your next 12–24 months of growth. 🔁 Repost if your team or network needs a clearer AI mental model. by/ Denis Panjuta&quot;</div>
+                <div class="tweet-engagement">
+                    <span>💬 21</span>
+                    <span>🔁 75</span>
+                    <span>❤️ 274</span>
+                    <span>👁️ 115,533</span>
+                </div>
+                <a href="https://x.com/Khulood_Almani/status/2010349941642711353" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">3</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">github.blog/open-source/soci…</div>
+                        <div class="tweet-handle"><a href="https://x.com/github" target="_blank">@github</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">What used to take 3 weeks of development work can now be finished within 1. 👀 The team at One Acre Fund shares how GitHub Copilot helps them ship faster and set more ambitious goals. Here's their story on how AI is scaling impact for smallholder farmers. 👇</div>
+                <div class="tweet-engagement">
+                    <span>💬 6</span>
+                    <span>🔁 21</span>
+                    <span>❤️ 109</span>
+                    <span>👁️ 31,263</span>
+                </div>
+                <a href="https://x.com/github/status/1984741077614563596" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">4</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">3h</div>
+                        <div class="tweet-handle"><a href="https://x.com/brave" target="_blank">@brave</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">The Brave Search API, which powers search and AI apps by tapping billions of Web results with a single API call, is now integrated into</div>
+                <div class="tweet-engagement">
+                    <span>💬 20</span>
+                    <span>🔁 12</span>
+                    <span>❤️ 202</span>
+                    <span>👁️ 25,517</span>
+                </div>
+                <a href="https://x.com/brave/status/2018734182306869296" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">5</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">18 Nov 2025</div>
+                        <div class="tweet-handle"><a href="https://x.com/DataChaz" target="_blank">@DataChaz</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">&quot;/1 This guide walks through: → Building agents with the Agent Development Kit (ADK) → Deploying via the Agent Starter Pack + Vertex AI Agent Engine → Adding reliability through AgentOps (CI/CD, evaluation, observability) → Scaling with Agentspace for cross-team automation&quot;</div>
+                <div class="tweet-engagement">
+                    <span>💬 1</span>
+                    <span>🔁 1</span>
+                    <span>❤️ 12</span>
+                    <span>👁️ 5,669</span>
+                </div>
+                <a href="https://x.com/DataChaz/status/1990802987195961545" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">6</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">28 Dec 2025</div>
+                        <div class="tweet-handle"><a href="https://x.com/olaidejendon" target="_blank">@olaidejendon</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">and their reliable infrastructure. Your foundation determines your potential. When you have flexible and strong compute, your team can finally focus on being creative and scaling their work properly. 💻</div>
+                <div class="tweet-engagement">
+                    <span>💬 0</span>
+                    <span>🔁 0</span>
+                    <span>❤️ 0</span>
+                    <span>👁️ 5,306</span>
+                </div>
+                <a href="https://x.com/olaidejendon/status/2005316433643983019" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">7</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">12 Dec 2025</div>
+                        <div class="tweet-handle"><a href="https://x.com/dinodaizovi" target="_blank">@dinodaizovi</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">&quot;AI offers a median 10% productivity boost: clean code unlocks gains (R-sq 0.40) and usage quality trumps quantity. Simple metrics mislead: one team's 14% PR count increase hid a 9% quality drop and 2.5x rework, risking negative ROI.&quot;</div>
+                <div class="tweet-engagement">
+                    <span>💬 1</span>
+                    <span>🔁 4</span>
+                    <span>❤️ 22</span>
+                    <span>👁️ 4,266</span>
+                </div>
+                <a href="https://x.com/dinodaizovi/status/1999295542795358593" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">8</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">4 Aug 2025</div>
+                        <div class="tweet-handle"><a href="https://x.com/BrandGrowthOS" target="_blank">@BrandGrowthOS</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">this is what actual ai ROI looks like not theoretical productivity gains or &quot;10x developer&quot; hype - actual phones ringing, actual revenue local SEO + claude code is such a perfect combo because the competition is still doing things manually your friend just automated what takes SEO agencies weeks to do. that speed advantage won't last forever but right now? pure gold</div>
+                <div class="tweet-engagement">
+                    <span>💬 1</span>
+                    <span>🔁 1</span>
+                    <span>❤️ 17</span>
+                    <span>👁️ 3,858</span>
+                </div>
+                <a href="https://x.com/BrandGrowthOS/status/1952498849693479078" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">9</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">Feb 1</div>
+                        <div class="tweet-handle"><a href="https://x.com/Ejaz_bashir1" target="_blank">@Ejaz_bashir1</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">AI is No Longer Optional in 2026. It’s a Leadership Skill. Learn these 12 AI skills Or get replaced by someone who does 👇 1️⃣ Prompt Engineering • Clear prompts = better results • Saves time on every task • Turns ideas into action • Core skill for all AI tools 2️⃣ AI Image Creation • Create visuals in seconds • No design skills needed • Perfect for branding &amp; content • Faster storytelling 3️⃣ AI Video Generation • No camera. No crew. • Videos from text • Great for marketing &amp; training • Scale content easily 4️⃣ Multimodal AI • One AI for text, image, audio • Thinks like a human • Better decisions • Smarter outputs 5️⃣ AI News &amp; Research • Instant insights • No endless searching • Stay updated daily • Think faster than competitors 6️⃣ AI Assistants • Organize your work • Answer instantly • Reduce mental load • Work like a second brain 7️⃣ AI Agents • Handle tasks end-to-end • Work while you sleep • No micromanagement • True automation power 8️⃣ Workflow Automation • Connect your tools • Remove repetitive work • Save hours every week • Focus on strategy 9️⃣ RAG Systems • AI trained on your data • Accurate business answers • Better internal knowledge • Smarter decisions 🔟 Vibe / AI Coding • Build without heavy coding • Idea → prototype fast • Perfect for founders • Speed over complexity 1️⃣1️⃣ Agentic Coding • AI plans + executes code • Handles full features • Faster development cycles • Future of software building 1️⃣2️⃣ AI-Assisted Development • Write &amp; fix code faster • Fewer bugs • Ship products quicker • Build smarter, not harder Follow</div>
+                <div class="tweet-engagement">
+                    <span>💬 25</span>
+                    <span>🔁 49</span>
+                    <span>❤️ 118</span>
+                    <span>👁️ 3,155</span>
+                </div>
+                <a href="https://x.com/Ejaz_bashir1/status/2017946925623062550" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">10</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">9h</div>
+                        <div class="tweet-handle"><a href="https://x.com/the_hindu" target="_blank">@the_hindu</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">Snowflake unveiled a new artificial intelligence coding agent and a suite of development tools aimed at helping enterprises move data and AI projects into production more quickly, as companies seek to turn AI experimentation into operational systems.</div>
+                <div class="tweet-engagement">
+                    <span>💬 0</span>
+                    <span>🔁 0</span>
+                    <span>❤️ 2</span>
+                    <span>👁️ 2,240</span>
+                </div>
+                <a href="https://x.com/the_hindu/status/2018638575479447593" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">11</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">7 Jul 2025</div>
+                        <div class="tweet-handle"><a href="https://x.com/rseroter" target="_blank">@rseroter</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">How to increase chances of success for AI projects? This is a good article from Shubhro, who's an engineering leader at</div>
+                <div class="tweet-engagement">
+                    <span>💬 0</span>
+                    <span>🔁 2</span>
+                    <span>❤️ 3</span>
+                    <span>👁️ 1,987</span>
+                </div>
+                <a href="https://x.com/rseroter/status/1942241445530010087" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">12</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">14 Aug 2025</div>
+                        <div class="tweet-handle"><a href="https://x.com/ProductUpfront" target="_blank">@ProductUpfront</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">If AI coding tools boost productivity by even 30%, which is a safe estimate, a $200K developer paying $1K a month for AI is getting a 10x ROI. Companies should be covering these subscriptions, not making developers pay out of pocket.</div>
+                <div class="tweet-engagement">
+                    <span>💬 0</span>
+                    <span>🔁 4</span>
+                    <span>❤️ 5</span>
+                    <span>👁️ 1,971</span>
+                </div>
+                <a href="https://x.com/ProductUpfront/status/1955958937187938339" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">13</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">5 Nov 2025</div>
+                        <div class="tweet-handle"><a href="https://x.com/SheikhSilicon" target="_blank">@SheikhSilicon</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">is transparent about its road map and funding. They recently announced raising $35 million to build the first human and AI network. The funds will go toward scaling the infrastructure, expanding the team, and accelerating the development of the reputation and trust economy layers. Major investors include Polychain Capital, Coinbase Ventures, Kaito launchpad and other prominent backers. This level of funding gives them resources to execute their ambitious vision. It also signals to the market that sophisticated investors believe in the value proposition. At the same time, Billions reiterates that the network’s ownership and governance will remain community-driven, with mechanisms to distribute value back to users through Power points and future token allocations. Knowing who’s behind a project and how it’s funded adds another layer of trust for me. It shows the team is accountable and has a clear plan for sustainability. It also means they can weather market cycles and continue building. If you like to see transparency in crypto projects, the updates from</div>
+                <div class="tweet-engagement">
+                    <span>💬 49</span>
+                    <span>🔁 4</span>
+                    <span>❤️ 85</span>
+                    <span>👁️ 1,405</span>
+                </div>
+                <a href="https://x.com/SheikhSilicon/status/1986131146359644312" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">14</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">10 Nov 2025</div>
+                        <div class="tweet-handle"><a href="https://x.com/idohodl" target="_blank">@idohodl</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">&quot;wrote code Today: watching my IDE write entire features in a mature codebase with 100+ components The pace of AI progress is wild. We're living in the future 🚀&quot;</div>
+                <div class="tweet-engagement">
+                    <span>💬 0</span>
+                    <span>🔁 0</span>
+                    <span>❤️ 0</span>
+                    <span>👁️ 1,453</span>
+                </div>
+                <a href="https://x.com/idohodl/status/1987981532632674627" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">15</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">20 Oct 2025</div>
+                        <div class="tweet-handle"><a href="https://x.com/OpenStack" target="_blank">@OpenStack</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">’s Role in the Next Gen Cloud. Infra requirements for AI workloads are growing in both complexity &amp; scale. OpenStack’s advantage in meeting these demands lies in its mature, modular codebase &amp; the open, community-driven dev model</div>
+                <div class="tweet-engagement">
+                    <span>💬 0</span>
+                    <span>🔁 1</span>
+                    <span>❤️ 7</span>
+                    <span>👁️ 1,445</span>
+                </div>
+                <a href="https://x.com/OpenStack/status/1980212703084867902" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">16</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">11 Jul 2025</div>
+                        <div class="tweet-handle"><a href="https://x.com/brennandunn" target="_blank">@brennandunn</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">On the one hand, we're shipping faster than ever. But we're not &quot;vibe coding&quot;. We're expanding a mature codebase that hundreds of paying customers depend on. The biggest drawback to this dependence (yes, dependence) on AI code gen for our team has been that I'm starting to feel like we're losing control of our codebase. I don't know how everything works the way I used to. And that's scary.</div>
+                <div class="tweet-engagement">
+                    <span>💬 0</span>
+                    <span>🔁 6</span>
+                    <span>❤️ 12</span>
+                    <span>👁️ 1,384</span>
+                </div>
+                <a href="https://x.com/brennandunn/status/1943763002471460890" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">17</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">nitter.poast.org/debasishg/status/20151…</div>
+                        <div class="tweet-handle"><a href="https://x.com/debasishg" target="_blank">@debasishg</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">where it incrementally adds macros (if required) that model the verification of the invariants. • during implementation of those specific parts it automatically invokes the macros honouring the principles of Design By Contract I am still iterating on this approach - any suggestion would be welcome. However the basic pragmatics is based on the hierarchical context of Rules, Spec and Code that I discussed in my earlier article (</div>
+                <div class="tweet-engagement">
+                    <span>💬 1</span>
+                    <span>🔁 1</span>
+                    <span>❤️ 14</span>
+                    <span>👁️ 1,176</span>
+                </div>
+                <a href="https://x.com/debasishg/status/2016405367232892961" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">18</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">Feb 1</div>
+                        <div class="tweet-handle"><a href="https://x.com/brunoborges" target="_blank">@brunoborges</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">100%, we could argue that a lot of &quot;best practices&quot; for agentic development are just workarounds for immaturity of models. Just like &quot;GoF Design Patterns&quot; were mostly design principles and best practices due to gaps in programming languages and features. Which kinda leads to the plausible conclusion that tools to implement best practices will have a short lifespan. But then, the cost of writing these tools is now so cheap that we should definitely be building them. Not to run a business though, not for profit, but for acceleration.</div>
+                <div class="tweet-engagement">
+                    <span>💬 1</span>
+                    <span>🔁 2</span>
+                    <span>❤️ 5</span>
+                    <span>👁️ 1,154</span>
+                </div>
+                <a href="https://x.com/brunoborges/status/2018078684549132521" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">19</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">Jan 8</div>
+                        <div class="tweet-handle"><a href="https://x.com/jcprice7" target="_blank">@jcprice7</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">It’s great when you can leverage tried and tested development practices like building to an interface or build to an api contract first how good it works with agentic coding and llms! This approach also works well when I start a new Laravel app. most of the time spent is just working through the data model and api contracts first then letting the llms fill in rest! Next you can then have the ai agents use tools like wayfinder and/or Laravel dtos to generate the code to pass to the frontend. With all that context it sets the right gaurdrails for the ai agents!</div>
+                <div class="tweet-engagement">
+                    <span>💬 0</span>
+                    <span>🔁 1</span>
+                    <span>❤️ 1</span>
+                    <span>👁️ 1,067</span>
+                </div>
+                <a href="https://x.com/jcprice7/status/2009377952253841734" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+
+            <div class="card">
+                <div class="tweet-header">
+                    <div class="tweet-rank">20</div>
+                    <div class="tweet-author">
+                        <div class="tweet-name">Jan 24</div>
+                        <div class="tweet-handle"><a href="https://x.com/0_Aakash_0" target="_blank">@0_Aakash_0</a></div>
+                    </div>
+                </div>
+                <div class="tweet-text">&quot;The real vibe coding workflow: 1. AI writes 50K lines in 5 mins 2. Engineering team reviews for 5 days 3. Ship it anyway because deadline At least the review process catches the 3 bugs that would've taken down prod. The other 47 get discovered in staging... or production. What's your actual review strategy for AI-generated PRs of this size? Genuinely curious if there's a pattern emerging.&quot;</div>
+                <div class="tweet-engagement">
+                    <span>💬 0</span>
+                    <span>🔁 0</span>
+                    <span>❤️ 3</span>
+                    <span>👁️ 989</span>
+                </div>
+                <a href="https://x.com/0_Aakash_0/status/2014905593337962549" target="_blank" class="tweet-link">View on X →</a>
+            </div>
+        </section>
+
+        <section class="section" id="hackernews">
+            <div class="section-header">
+                <span class="section-icon">🟠</span>
+                <h2 class="section-title">Hacker News</h2>
+                <span class="section-count">Top 10 by points</span>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">1</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://claude.com/blog/cowork-research-preview" target="_blank">Cowork: Claude Code for the rest of your work</a></div>
+                        <div class="post-meta">
+                            <span>⬆️ 1298 points</span>
+                            <span>💬 565 comments</span>
+                            <span>by adocomplete</span>
+                            <a href="https://news.ycombinator.com/item?id=46593022" target="_blank">discuss →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">2</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.mihaileric.com/The-Emperor-Has-No-Clothes/" target="_blank">How to code Claude Code in 200 lines of code</a></div>
+                        <div class="post-meta">
+                            <span>⬆️ 816 points</span>
+                            <span>💬 240 comments</span>
+                            <span>by nutellalover</span>
+                            <a href="https://news.ycombinator.com/item?id=46545620" target="_blank">discuss →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">3</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://twitter.com/OfficialLoganK/status/2009339263251566902" target="_blank">Google AI Studio is now sponsoring Tailwind CSS</a></div>
+                        <div class="post-meta">
+                            <span>⬆️ 777 points</span>
+                            <span>💬 298 comments</span>
+                            <span>by qwertyforce</span>
+                            <a href="https://news.ycombinator.com/item?id=46545077" target="_blank">discuss →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">4</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://marginlab.ai/trackers/claude-code/" target="_blank">Claude Code daily benchmarks for degradation tracking</a></div>
+                        <div class="post-meta">
+                            <span>⬆️ 755 points</span>
+                            <span>💬 352 comments</span>
+                            <span>by qwesr123</span>
+                            <a href="https://news.ycombinator.com/item?id=46810282" target="_blank">discuss →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">5</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://github.com/anomalyco/opencode/issues/7410" target="_blank">Anthropic blocks third-party use of Claude Code subscriptions</a></div>
+                        <div class="post-meta">
+                            <span>⬆️ 625 points</span>
+                            <span>💬 513 comments</span>
+                            <span>by sergiotapia</span>
+                            <a href="https://news.ycombinator.com/item?id=46549823" target="_blank">discuss →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">6</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://labs.ramp.com/rct" target="_blank">We put Claude Code in Rollercoaster Tycoon</a></div>
+                        <div class="post-meta">
+                            <span>⬆️ 526 points</span>
+                            <span>💬 288 comments</span>
+                            <span>by iamwil</span>
+                            <a href="https://news.ycombinator.com/item?id=46588972" target="_blank">discuss →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">7</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://trails.pieterma.es/" target="_blank">Show HN: I used Claude Code to discover connections between 100 books</a></div>
+                        <div class="post-meta">
+                            <span>⬆️ 524 points</span>
+                            <span>💬 146 comments</span>
+                            <span>by pmaze</span>
+                            <a href="https://news.ycombinator.com/item?id=46567400" target="_blank">discuss →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">8</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://twitter.com/NicerInPerson/status/2014989679796347375" target="_blank">Claude Code's new hidden feature: Swarms</a></div>
+                        <div class="post-meta">
+                            <span>⬆️ 521 points</span>
+                            <span>💬 335 comments</span>
+                            <span>by AffableSpatula</span>
+                            <a href="https://news.ycombinator.com/item?id=46743908" target="_blank">discuss →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">9</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.theverge.com/tech/865689/microsoft-claude-code-anthropic-partnership-notepad" target="_blank">Claude Code is suddenly everywhere inside Microsoft</a></div>
+                        <div class="post-meta">
+                            <span>⬆️ 391 points</span>
+                            <span>💬 510 comments</span>
+                            <span>by Anon84</span>
+                            <a href="https://news.ycombinator.com/item?id=46854999" target="_blank">discuss →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">10</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://blog.emilburzo.com/2026/01/running-claude-code-dangerously-safely/" target="_blank">Running Claude Code dangerously (safely)</a></div>
+                        <div class="post-meta">
+                            <span>⬆️ 351 points</span>
+                            <span>💬 258 comments</span>
+                            <span>by emilburzo</span>
+                            <a href="https://news.ycombinator.com/item?id=46690907" target="_blank">discuss →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="reddit">
+            <div class="section-header">
+                <span class="section-icon">🔵</span>
+                <h2 class="section-title">Reddit</h2>
+                <span class="section-count">Top 10 by score</span>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank reddit">1</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1qrda7y/boycott_chatgpt/" target="_blank">Boycott ChatGPT</a></div>
+                        <div class="post-meta">
+                            <span class="subreddit">r/ChatGPT</span>
+                            <span>⬆️ 7514 points</span>
+                            <span>💬 1008 comments</span>
+                            <span>by u/FinnFarrow</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank reddit">2</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1qpb0cf/bilbo_asks_chatgpt/" target="_blank">Bilbo asks chatgpt</a></div>
+                        <div class="post-meta">
+                            <span class="subreddit">r/ChatGPT</span>
+                            <span>⬆️ 7127 points</span>
+                            <span>💬 96 comments</span>
+                            <span>by u/Able_Environment1896</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank reddit">3</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://reddit.com/r/programming/comments/1qqxvlw/anthropic_ai_assisted_coding_doesnt_show/" target="_blank">Anthropic: AI assisted coding doesn't show efficiency gains and impairs developers abilities.</a></div>
+                        <div class="post-meta">
+                            <span class="subreddit">r/programming</span>
+                            <span>⬆️ 3847 points</span>
+                            <span>💬 669 comments</span>
+                            <span>by u/Gil_berth</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank reddit">4</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qovy0e/claude_laughed_at_me/" target="_blank">Claude laughed at me…</a></div>
+                        <div class="post-meta">
+                            <span class="subreddit">r/ClaudeAI</span>
+                            <span>⬆️ 1924 points</span>
+                            <span>💬 125 comments</span>
+                            <span>by u/Consistent-Chart-594</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank reddit">5</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qq3pd3/hired_a_junior_who_learned_to_code_with_ai_cannot/" target="_blank">hired a junior who learned to code with AI. cannot debug without it. don't know how to help them.</a></div>
+                        <div class="post-meta">
+                            <span class="subreddit">r/ClaudeAI</span>
+                            <span>⬆️ 1525 points</span>
+                            <span>💬 341 comments</span>
+                            <span>by u/InstructionCute5502</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank reddit">6</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qspcip/10_claude_code_tips_from_boris_the_creator_of/" target="_blank">10 Claude Code tips from Boris, the creator of Claude Code, summarized</a></div>
+                        <div class="post-meta">
+                            <span class="subreddit">r/ClaudeAI</span>
+                            <span>⬆️ 1469 points</span>
+                            <span>💬 112 comments</span>
+                            <span>by u/yksugi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank reddit">7</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://reddit.com/r/LocalLLaMA/comments/1qr4p4x/yann_lecun_says_the_best_open_models_are_not/" target="_blank">Yann LeCun says the best open models are not coming from the West. Researchers across the field are using Chinese models. Openness drove AI progress. Close access, and the West risks slowing itself.</a></div>
+                        <div class="post-meta">
+                            <span class="subreddit">r/LocalLLaMA</span>
+                            <span>⬆️ 1387 points</span>
+                            <span>💬 183 comments</span>
+                            <span>by u/Nunki08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank reddit">8</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1qqlf8g/chatgpt_is_officially_retiring_gpt4o_and_gpt41/" target="_blank">ChatGPT is officially retiring GPT-4o (and GPT-4.1, GPT-4.1 mini, and o4-mini) on Feb 13th</a></div>
+                        <div class="post-meta">
+                            <span class="subreddit">r/ChatGPT</span>
+                            <span>⬆️ 1258 points</span>
+                            <span>💬 477 comments</span>
+                            <span>by u/imatowell</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank reddit">9</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1qsgpja/why_everybody_is_canceling_chatgpt/" target="_blank">Why everybody is canceling ChatGPT?</a></div>
+                        <div class="post-meta">
+                            <span class="subreddit">r/ChatGPT</span>
+                            <span>⬆️ 1229 points</span>
+                            <span>💬 1076 comments</span>
+                            <span>by u/MankuTheBeast</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank reddit">10</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1quwn2r/i_removed_epsteins_name_and_asks_chatgpt_what/" target="_blank">I removed Epstein’s name and asks ChatGPT what this guy likely died of</a></div>
+                        <div class="post-meta">
+                            <span class="subreddit">r/ChatGPT</span>
+                            <span>⬆️ 1102 points</span>
+                            <span>💬 138 comments</span>
+                            <span>by u/NoBotRobotRob</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="back-to-top">
+            <a href="#top">↑ Back to top</a>
+        </div>
+    </div>
+</body>
+</html>
