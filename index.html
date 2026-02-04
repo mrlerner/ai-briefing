@@ -171,7 +171,7 @@
             display: inline-block;
         }
 
-        /* HN/Reddit specific */
+        /* HN/Reddit/WSJ specific */
         .post-rank {
             background: #ff6600;
             color: white;
@@ -188,6 +188,9 @@
         }
         .post-rank.reddit {
             background: #ff4500;
+        }
+        .post-rank.wsj {
+            background: #0274b6;
         }
         .post-title {
             font-weight: 600;
@@ -214,6 +217,16 @@
         .subreddit {
             color: #58a6ff;
         }
+        .wsj-category {
+            color: #58a6ff;
+            font-weight: 500;
+        }
+        .wsj-description {
+            color: #8b949e;
+            font-size: 13px;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
 
         /* Back to top */
         .back-to-top {
@@ -232,12 +245,17 @@
     <div class="container">
         <header id="top">
             <h1>AI Engineering Briefing</h1>
-            <div class="subtitle">February 03, 2026 at 15:38</div>
+            <div class="subtitle">February 03, 2026 at 18:32</div>
         </header>
 
         <nav class="toc">
             <h2>Contents</h2>
             <div class="toc-list">
+                <div class="toc-item">
+                    <span class="toc-icon">📰</span>
+                    <a href="#wsj" class="toc-link">Wall Street Journal</a>
+                    <span class="toc-count">73 headlines</span>
+                </div>
                 <div class="toc-item">
                     <span class="toc-icon">🐦</span>
                     <a href="#twitter" class="toc-link">Twitter</a>
@@ -246,12 +264,12 @@
                 <div class="toc-item">
                     <span class="toc-icon">🟠</span>
                     <a href="#hackernews" class="toc-link">Hacker News</a>
-                    <span class="toc-count">198 posts</span>
+                    <span class="toc-count">189 posts</span>
                 </div>
                 <div class="toc-item">
                     <span class="toc-icon">🔵</span>
                     <a href="#reddit" class="toc-link">Reddit</a>
-                    <span class="toc-count">175 posts</span>
+                    <span class="toc-count">173 posts</span>
                 </div>
             </div>
         </nav>
@@ -266,6 +284,209 @@
             <div style="margin-top: 10px; font-size: 13px; color: #8b949e;">Perfect days for outdoor activities!</div>
         </div>
 
+
+        <section class="section" id="wsj">
+            <div class="section-header">
+                <span class="section-icon">📰</span>
+                <h2 class="section-title">Wall Street Journal</h2>
+                <span class="section-count">Top 15 headlines</span>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">1</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/the-punishing-tax-collectors-of-oregon-11675811476" target="_blank">The Punishing Tax Collectors of Oregon</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">Opinion</span>
+                        </div>
+                        <div class="wsj-description">Does government have an obligation to inform residents they owe a new tax before penalizing them?</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">2</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/trump-says-colombia-will-face-25-tariffs-amid-fight-over-deportation-flights-e32dc497" target="_blank">Trump Says Colombia Will Accept Deportees, Ending Tariff Standoff</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">World</span>
+                        </div>
+                        <div class="wsj-description">The president has made immigration an early priority to start second term, with ICE making more than 900 arrests Sunday.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">3</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/jeju-air-crash-probe-focuses-on-engine-damage-after-bird-strike-3bafc2ff" target="_blank">Jeju Air Crash Probe Focuses On Engine Damage After Bird Strike</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">World</span>
+                        </div>
+                        <div class="wsj-description">Pilots’ actions after that strike are an early focus of the investigation, according to people familiar with the probe.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">4</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/heard-on-the-streets-stock-picking-series-98f04640?mod=rss_markets_main" target="_blank">Heard on the Street's Stock-Picking Series</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">Markets</span>
+                        </div>
+                        <div class="wsj-description">Check out the stocks Heard on the Street writers favor in their eighth annual stock-picking contest.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">5</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/germany-economic-model-broken-exports-095a488d" target="_blank">Germany's Economic Model Is Broken, and No One Has a Plan B</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">World</span>
+                        </div>
+                        <div class="wsj-description">The country is focused on exports, but China is slowing imports and U.S. tariff threats are growing. Politicians are offering few alternatives.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">6</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/trump-says-he-wants-to-clean-out-gaza-send-refugees-to-egypt-and-jordan-d90beccc" target="_blank">Trump Says He Wants to 'Clean Out' Gaza, Send Refugees to Egypt and Jordan</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">World</span>
+                        </div>
+                        <div class="wsj-description">The president, calling the heavily bombed enclave “a demolition site,” proposed relocating Palestinians temporarily or long-term, a move rejected by Arab countries since the war began.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">7</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/lumber-tariffs-and-disaster-recovery-canada-california-fires-4ec8f2e0" target="_blank">Trump's Lumber Tariffs and Disaster Recovery</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">Opinion</span>
+                        </div>
+                        <div class="wsj-description">Border taxes on imports from Canada will slow rebuilding in Los Angeles and North Carolina.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">8</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/worlds-collide-on-new-yorks-houston-street-google-advertising-76eba026" target="_blank">Worlds Collide on New York's Houston Street</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">Opinion</span>
+                        </div>
+                        <div class="wsj-description">Google’s new building is on one side, ‘Post No Bills’ on the other.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">9</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/scott-bessent-can-walk-the-trade-tightrope-policy-economy-treasury-dfa140df" target="_blank">Scott Bessent Can Walk the Trade Tightrope</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">Opinion</span>
+                        </div>
+                        <div class="wsj-description">Take a page from the playbook of Reagan and Treasury Secretary James Baker, who managed to douse the ‘prairie fire’ of protectionism.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">10</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/rfk-jr-senate-hearing-heath-and-human-services-vaccines-trial-lawyers-ce7703cf" target="_blank">Why RFK Jr. Is Dangerous to Public Health</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">Opinion</span>
+                        </div>
+                        <div class="wsj-description">He’s made millions from referring clients to trial lawyers, and he advocates mass tort litigation that would ruin the vaccine industry.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">11</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/the-cia-wakes-up-about-covids-origin-pandemic-wuhan-china-health-875d73ee" target="_blank">The CIA Wakes Up About Covid's Origin</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">Opinion</span>
+                        </div>
+                        <div class="wsj-description">New director Ratcliffe releases a judgment Biden had kept secret.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">12</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/head-start-report-government-accountability-office-tim-walberg-education-c3a0e44a" target="_blank">Head Start Puts Children at Risk</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">Opinion</span>
+                        </div>
+                        <div class="wsj-description">A new report reveals serious negligence and fiscal mismanagement.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">13</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/trumps-reprieve-for-tiktok-is-legitimate-constitution-law-extension-social-media-812e19ae" target="_blank">Trump's Reprieve for TikTok Is Legitimate</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">Opinion</span>
+                        </div>
+                        <div class="wsj-description">The Constitution gives the president broad discretion in enforcing the law and conducting foreign affairs.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">14</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/how-dei-conquered-the-university-of-colorado-boulder-discrimination-hiring-professors-0c306a9e" target="_blank">How DEI Conquered the University of Colorado</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">Opinion</span>
+                        </div>
+                        <div class="wsj-description">Trump’s order against the practice is a crucial step in restoring the purpose of higher education.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank wsj">15</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://www.wsj.com/articles/why-business-leaders-are-bullish-on-trump-47-optimism-economy-deregulation-policy-b105761f" target="_blank">Trump 47 Brings a Long Awaited Spring for Businesses</a></div>
+                        <div class="post-meta">
+                            <span class="wsj-category">Opinion</span>
+                        </div>
+                        <div class="wsj-description">The economic sun shines from Davos to Main Street. But there are a few clouds on the horizon.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="section" id="twitter">
             <div class="section-header">
@@ -694,7 +915,7 @@
                         <div class="post-title"><a href="https://marginlab.ai/trackers/claude-code/" target="_blank">Claude Code daily benchmarks for degradation tracking</a></div>
                         <div class="post-meta">
                             <span>⬆️ 755 points</span>
-                            <span>💬 352 comments</span>
+                            <span>💬 353 comments</span>
                             <span>by qwesr123</span>
                             <a href="https://news.ycombinator.com/item?id=46810282" target="_blank">discuss →</a>
                         </div>
@@ -768,8 +989,8 @@
                     <div style="flex-grow: 1;">
                         <div class="post-title"><a href="https://www.theverge.com/tech/865689/microsoft-claude-code-anthropic-partnership-notepad" target="_blank">Claude Code is suddenly everywhere inside Microsoft</a></div>
                         <div class="post-meta">
-                            <span>⬆️ 391 points</span>
-                            <span>💬 511 comments</span>
+                            <span>⬆️ 392 points</span>
+                            <span>💬 514 comments</span>
                             <span>by Anon84</span>
                             <a href="https://news.ycombinator.com/item?id=46854999" target="_blank">discuss →</a>
                         </div>
@@ -807,8 +1028,8 @@
                         <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1qrda7y/boycott_chatgpt/" target="_blank">Boycott ChatGPT</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/ChatGPT</span>
-                            <span>⬆️ 7530 points</span>
-                            <span>💬 1009 comments</span>
+                            <span>⬆️ 7577 points</span>
+                            <span>💬 1015 comments</span>
                             <span>by u/FinnFarrow</span>
                         </div>
                     </div>
@@ -822,7 +1043,7 @@
                         <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1qpb0cf/bilbo_asks_chatgpt/" target="_blank">Bilbo asks chatgpt</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/ChatGPT</span>
-                            <span>⬆️ 7137 points</span>
+                            <span>⬆️ 7152 points</span>
                             <span>💬 96 comments</span>
                             <span>by u/Able_Environment1896</span>
                         </div>
@@ -837,7 +1058,7 @@
                         <div class="post-title"><a href="https://reddit.com/r/programming/comments/1qqxvlw/anthropic_ai_assisted_coding_doesnt_show/" target="_blank">Anthropic: AI assisted coding doesn't show efficiency gains and impairs developers abilities.</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/programming</span>
-                            <span>⬆️ 3851 points</span>
+                            <span>⬆️ 3862 points</span>
                             <span>💬 670 comments</span>
                             <span>by u/Gil_berth</span>
                         </div>
@@ -849,12 +1070,12 @@
                 <div style="display: flex; align-items: flex-start;">
                     <div class="post-rank reddit">4</div>
                     <div style="flex-grow: 1;">
-                        <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qovy0e/claude_laughed_at_me/" target="_blank">Claude laughed at me…</a></div>
+                        <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1quwn2r/i_removed_epsteins_name_and_asks_chatgpt_what/" target="_blank">I removed Epstein’s name and asks ChatGPT what this guy likely died of</a></div>
                         <div class="post-meta">
-                            <span class="subreddit">r/ClaudeAI</span>
-                            <span>⬆️ 1924 points</span>
-                            <span>💬 125 comments</span>
-                            <span>by u/Consistent-Chart-594</span>
+                            <span class="subreddit">r/ChatGPT</span>
+                            <span>⬆️ 2372 points</span>
+                            <span>💬 265 comments</span>
+                            <span>by u/NoBotRobotRob</span>
                         </div>
                     </div>
                 </div>
@@ -864,12 +1085,12 @@
                 <div style="display: flex; align-items: flex-start;">
                     <div class="post-rank reddit">5</div>
                     <div style="flex-grow: 1;">
-                        <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qq3pd3/hired_a_junior_who_learned_to_code_with_ai_cannot/" target="_blank">hired a junior who learned to code with AI. cannot debug without it. don't know how to help them.</a></div>
+                        <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1qux5c1/every_single_image_on_here_is_ai/" target="_blank">Every single image on here is AI.</a></div>
                         <div class="post-meta">
-                            <span class="subreddit">r/ClaudeAI</span>
-                            <span>⬆️ 1530 points</span>
-                            <span>💬 341 comments</span>
-                            <span>by u/InstructionCute5502</span>
+                            <span class="subreddit">r/ChatGPT</span>
+                            <span>⬆️ 1545 points</span>
+                            <span>💬 398 comments</span>
+                            <span>by u/1Banma</span>
                         </div>
                     </div>
                 </div>
@@ -879,12 +1100,12 @@
                 <div style="display: flex; align-items: flex-start;">
                     <div class="post-rank reddit">6</div>
                     <div style="flex-grow: 1;">
-                        <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1quwn2r/i_removed_epsteins_name_and_asks_chatgpt_what/" target="_blank">I removed Epstein’s name and asks ChatGPT what this guy likely died of</a></div>
+                        <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qq3pd3/hired_a_junior_who_learned_to_code_with_ai_cannot/" target="_blank">hired a junior who learned to code with AI. cannot debug without it. don't know how to help them.</a></div>
                         <div class="post-meta">
-                            <span class="subreddit">r/ChatGPT</span>
-                            <span>⬆️ 1518 points</span>
-                            <span>💬 166 comments</span>
-                            <span>by u/NoBotRobotRob</span>
+                            <span class="subreddit">r/ClaudeAI</span>
+                            <span>⬆️ 1524 points</span>
+                            <span>💬 341 comments</span>
+                            <span>by u/InstructionCute5502</span>
                         </div>
                     </div>
                 </div>
@@ -897,8 +1118,8 @@
                         <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qspcip/10_claude_code_tips_from_boris_the_creator_of/" target="_blank">10 Claude Code tips from Boris, the creator of Claude Code, summarized</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/ClaudeAI</span>
-                            <span>⬆️ 1469 points</span>
-                            <span>💬 112 comments</span>
+                            <span>⬆️ 1476 points</span>
+                            <span>💬 113 comments</span>
                             <span>by u/yksugi</span>
                         </div>
                     </div>
@@ -912,7 +1133,7 @@
                         <div class="post-title"><a href="https://reddit.com/r/LocalLLaMA/comments/1qr4p4x/yann_lecun_says_the_best_open_models_are_not/" target="_blank">Yann LeCun says the best open models are not coming from the West. Researchers across the field are using Chinese models. Openness drove AI progress. Close access, and the West risks slowing itself.</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/LocalLLaMA</span>
-                            <span>⬆️ 1391 points</span>
+                            <span>⬆️ 1388 points</span>
                             <span>💬 183 comments</span>
                             <span>by u/Nunki08</span>
                         </div>
@@ -927,7 +1148,7 @@
                         <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1qqlf8g/chatgpt_is_officially_retiring_gpt4o_and_gpt41/" target="_blank">ChatGPT is officially retiring GPT-4o (and GPT-4.1, GPT-4.1 mini, and o4-mini) on Feb 13th</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/ChatGPT</span>
-                            <span>⬆️ 1251 points</span>
+                            <span>⬆️ 1260 points</span>
                             <span>💬 477 comments</span>
                             <span>by u/imatowell</span>
                         </div>
@@ -942,8 +1163,8 @@
                         <div class="post-title"><a href="https://reddit.com/r/ChatGPT/comments/1qsgpja/why_everybody_is_canceling_chatgpt/" target="_blank">Why everybody is canceling ChatGPT?</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/ChatGPT</span>
-                            <span>⬆️ 1221 points</span>
-                            <span>💬 1076 comments</span>
+                            <span>⬆️ 1235 points</span>
+                            <span>💬 1078 comments</span>
                             <span>by u/MankuTheBeast</span>
                         </div>
                     </div>
