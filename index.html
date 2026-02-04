@@ -4,60 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Engineering Briefing - February 03, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0d1117;
-            color: #e6edf3;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0f172b;
+            color: #e2e8f0;
             margin: 0;
-            padding: 16px;
-            line-height: 1.5;
+            padding: 24px 16px;
+            line-height: 1.6;
             font-size: 15px;
         }
-        .container { max-width: 700px; margin: 0 auto; }
+        .container { max-width: 720px; margin: 0 auto; }
 
         /* Header */
         header {
             text-align: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #30363d;
-            margin-bottom: 20px;
+            padding: 32px 0;
+            margin-bottom: 32px;
         }
         h1 {
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: 700;
             margin: 0 0 8px 0;
-            color: #58a6ff;
+            color: #ffffff;
+            letter-spacing: -0.5px;
         }
         .subtitle {
-            color: #8b949e;
+            color: #45556c;
             font-size: 14px;
+            font-weight: 500;
         }
 
         /* TOC */
         .toc {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 24px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 32px;
         }
         .toc h2 {
-            margin: 0 0 12px 0;
-            font-size: 14px;
-            color: #8b949e;
+            margin: 0 0 16px 0;
+            font-size: 12px;
+            font-weight: 600;
+            color: #45556c;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
         .toc-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 12px;
         }
         .toc-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         .toc-icon {
             font-size: 18px;
@@ -65,75 +71,79 @@
             text-align: center;
         }
         .toc-link {
-            color: #58a6ff;
+            color: #059669;
             text-decoration: none;
             flex-grow: 1;
+            font-weight: 500;
         }
-        .toc-link:hover { text-decoration: underline; }
+        .toc-link:hover { color: #007a55; text-decoration: underline; }
         .toc-count {
-            color: #8b949e;
+            color: #45556c;
             font-size: 13px;
         }
 
         /* Sections */
         .section {
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
         .section-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 0;
-            border-bottom: 1px solid #30363d;
-            margin-bottom: 16px;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 2px solid #334155;
+            margin-bottom: 20px;
             position: sticky;
             top: 0;
-            background: #0d1117;
+            background: #0f172b;
             z-index: 10;
         }
-        .section-icon { font-size: 20px; }
+        .section-icon { font-size: 22px; }
         .section-title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
             margin: 0;
-            color: #e6edf3;
+            color: #ffffff;
         }
         .section-count {
-            color: #8b949e;
+            color: #45556c;
             font-size: 13px;
             margin-left: auto;
+            font-weight: 500;
         }
 
         /* Cards */
         .card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 14px;
-            margin-bottom: 10px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
         }
         .card:hover {
-            border-color: #58a6ff;
+            border-color: #059669;
+            transform: translateY(-1px);
         }
 
         /* Tweet specific */
         .tweet-header {
             display: flex;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         .tweet-rank {
-            background: #1da1f2;
+            background: #059669;
             color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 11px;
-            margin-right: 10px;
+            font-weight: 600;
+            font-size: 12px;
+            margin-right: 12px;
             flex-shrink: 0;
         }
         .tweet-author {
@@ -141,111 +151,133 @@
         }
         .tweet-name {
             font-weight: 600;
-            color: #e6edf3;
+            color: #ffffff;
         }
         .tweet-handle {
-            color: #8b949e;
+            color: #45556c;
             font-size: 13px;
         }
         .tweet-handle a {
-            color: #8b949e;
+            color: #45556c;
             text-decoration: none;
         }
-        .tweet-handle a:hover { text-decoration: underline; }
+        .tweet-handle a:hover { color: #059669; }
         .tweet-text {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             white-space: pre-wrap;
             word-wrap: break-word;
+            color: #cbd5e1;
         }
         .tweet-engagement {
             display: flex;
-            gap: 16px;
-            color: #8b949e;
+            gap: 20px;
+            color: #45556c;
             font-size: 12px;
+            font-weight: 500;
         }
         .tweet-link {
-            color: #58a6ff;
+            color: #059669;
             text-decoration: none;
-            font-size: 12px;
-            margin-top: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 10px;
             display: inline-block;
         }
+        .tweet-link:hover { color: #007a55; }
 
         /* HN/Reddit/WSJ specific */
         .post-rank {
-            background: #ff6600;
+            background: #059669;
             color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 11px;
-            margin-right: 10px;
+            font-weight: 600;
+            font-size: 12px;
+            margin-right: 12px;
             flex-shrink: 0;
         }
         .post-rank.reddit {
-            background: #ff4500;
+            background: #007a55;
         }
         .post-rank.wsj {
-            background: #0274b6;
+            background: #059669;
         }
         .post-title {
             font-weight: 600;
-            color: #e6edf3;
-            margin-bottom: 6px;
+            color: #ffffff;
+            margin-bottom: 8px;
         }
         .post-title a {
-            color: #58a6ff;
+            color: #059669;
             text-decoration: none;
         }
-        .post-title a:hover { text-decoration: underline; }
+        .post-title a:hover { color: #007a55; text-decoration: underline; }
         .post-meta {
-            color: #8b949e;
+            color: #45556c;
             font-size: 12px;
+            font-weight: 500;
             display: flex;
-            gap: 12px;
+            gap: 16px;
             flex-wrap: wrap;
         }
         .post-meta a {
-            color: #8b949e;
+            color: #059669;
             text-decoration: none;
         }
-        .post-meta a:hover { text-decoration: underline; }
+        .post-meta a:hover { color: #007a55; }
         .subreddit {
-            color: #58a6ff;
+            color: #059669;
+            font-weight: 600;
         }
         .wsj-category {
-            color: #58a6ff;
-            font-weight: 500;
+            color: #059669;
+            font-weight: 600;
         }
         .wsj-description {
-            color: #8b949e;
+            color: #45556c;
             font-size: 13px;
-            margin-top: 6px;
-            line-height: 1.4;
+            margin-top: 8px;
+            line-height: 1.5;
         }
 
         /* Back to top */
         .back-to-top {
             text-align: center;
-            padding: 20px;
-            border-top: 1px solid #30363d;
-            margin-top: 20px;
+            padding: 24px;
+            border-top: 1px solid #334155;
+            margin-top: 32px;
         }
         .back-to-top a {
-            color: #58a6ff;
+            color: #059669;
             text-decoration: none;
+            font-weight: 500;
         }
+        .back-to-top a:hover { color: #007a55; }
+
+        /* Footer branding */
+        .footer-brand {
+            text-align: center;
+            padding-top: 16px;
+            color: #45556c;
+            font-size: 12px;
+        }
+        .footer-brand a {
+            color: #059669;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-brand a:hover { color: #007a55; }
     </style>
 </head>
 <body>
     <div class="container">
         <header id="top">
             <h1>AI Engineering Briefing</h1>
-            <div class="subtitle">February 03, 2026 at 18:39</div>
+            <div class="subtitle">February 03, 2026 at 18:43</div>
         </header>
 
         <nav class="toc">
@@ -269,24 +301,24 @@
             </div>
         </nav>
 
-        <div class="card" style="background: #1a2332; border-color: #58a6ff; margin-bottom: 20px;">
-            <div style="margin-bottom: 10px; font-weight: 600; color: #58a6ff; font-size: 16px;">☀️ Upcoming Sunny Days in Seattle</div>
-            <div style="font-size: 14px; line-height: 1.9;">
-                <div>• <strong>Tuesday, Feb 03</strong>: Clear  (45-60°F)</div>
-                <div>• <strong>Wednesday, Feb 04</strong>: Clear  (46-64°F)</div>
-                <div>• <strong>Thursday, Feb 05</strong>: Partly Cloudy  (39-63°F)</div>
+        <div class="card" style="background: #1e293b; border: 1px solid #059669; border-radius: 10px; margin-bottom: 20px; padding: 16px;">
+            <div style="margin-bottom: 12px; font-weight: 600; color: #ffffff; font-size: 16px;">☀️ Upcoming Sunny Days in Seattle</div>
+            <div style="font-size: 14px; line-height: 2; color: #cbd5e1;">
+                <div>• <strong style="color: #ffffff;">Tuesday, Feb 03</strong>: Clear  (45-60°F)</div>
+                <div>• <strong style="color: #ffffff;">Wednesday, Feb 04</strong>: Clear  (46-64°F)</div>
+                <div>• <strong style="color: #ffffff;">Thursday, Feb 05</strong>: Partly Cloudy  (39-63°F)</div>
             </div>
-            <div style="margin-top: 10px; font-size: 13px; color: #8b949e;">Perfect days for outdoor activities!</div>
+            <div style="margin-top: 12px; font-size: 13px; color: #45556c; font-weight: 500;">Perfect days for outdoor activities!</div>
         </div>
 
-        <div class="card" style="background: #1a2332; border-color: #0274b6; margin-bottom: 20px;">
-            <div style="margin-bottom: 10px; font-weight: 600; color: #58a6ff; font-size: 16px;">📰 Top WSJ Headlines</div>
-            <div style="font-size: 14px; line-height: 1.8;">
-                <div style="margin-bottom: 8px;">• <a href="https://www.wsj.com/articles/the-punishing-tax-collectors-of-oregon-11675811476" target="_blank" style="color: #58a6ff; text-decoration: none;">The Punishing Tax Collectors of Oregon</a> <span style="color: #8b949e; font-size: 12px;">(Opinion)</span></div>
-                <div style="margin-bottom: 8px;">• <a href="https://www.wsj.com/articles/trump-says-colombia-will-face-25-tariffs-amid-fight-over-deportation-flights-e32dc497" target="_blank" style="color: #58a6ff; text-decoration: none;">Trump Says Colombia Will Accept Deportees, Ending Tariff Standoff</a> <span style="color: #8b949e; font-size: 12px;">(World)</span></div>
-                <div style="margin-bottom: 8px;">• <a href="https://www.wsj.com/articles/jeju-air-crash-probe-focuses-on-engine-damage-after-bird-strike-3bafc2ff" target="_blank" style="color: #58a6ff; text-decoration: none;">Jeju Air Crash Probe Focuses On Engine Damage After Bird Strike</a> <span style="color: #8b949e; font-size: 12px;">(World)</span></div>
-                <div style="margin-bottom: 8px;">• <a href="https://www.wsj.com/articles/heard-on-the-streets-stock-picking-series-98f04640?mod=rss_markets_main" target="_blank" style="color: #58a6ff; text-decoration: none;">Heard on the Street's Stock-Picking Series</a> <span style="color: #8b949e; font-size: 12px;">(Markets)</span></div>
-                <div style="margin-bottom: 8px;">• <a href="https://www.wsj.com/articles/germany-economic-model-broken-exports-095a488d" target="_blank" style="color: #58a6ff; text-decoration: none;">Germany's Economic Model Is Broken, and No One Has a Plan B</a> <span style="color: #8b949e; font-size: 12px;">(World)</span></div>
+        <div class="card" style="background: #1e293b; border: 1px solid #334155; border-radius: 10px; margin-bottom: 20px; padding: 16px;">
+            <div style="margin-bottom: 12px; font-weight: 600; color: #ffffff; font-size: 16px;">📰 Top WSJ Headlines</div>
+            <div style="font-size: 14px; line-height: 1.9;">
+                <div style="margin-bottom: 10px;">• <a href="https://www.wsj.com/articles/the-punishing-tax-collectors-of-oregon-11675811476" target="_blank" style="color: #059669; text-decoration: none; font-weight: 500;">The Punishing Tax Collectors of Oregon</a> <span style="color: #45556c; font-size: 12px; font-weight: 500;">(Opinion)</span></div>
+                <div style="margin-bottom: 10px;">• <a href="https://www.wsj.com/articles/trump-says-colombia-will-face-25-tariffs-amid-fight-over-deportation-flights-e32dc497" target="_blank" style="color: #059669; text-decoration: none; font-weight: 500;">Trump Says Colombia Will Accept Deportees, Ending Tariff Standoff</a> <span style="color: #45556c; font-size: 12px; font-weight: 500;">(World)</span></div>
+                <div style="margin-bottom: 10px;">• <a href="https://www.wsj.com/articles/jeju-air-crash-probe-focuses-on-engine-damage-after-bird-strike-3bafc2ff" target="_blank" style="color: #059669; text-decoration: none; font-weight: 500;">Jeju Air Crash Probe Focuses On Engine Damage After Bird Strike</a> <span style="color: #45556c; font-size: 12px; font-weight: 500;">(World)</span></div>
+                <div style="margin-bottom: 10px;">• <a href="https://www.wsj.com/articles/heard-on-the-streets-stock-picking-series-98f04640?mod=rss_markets_main" target="_blank" style="color: #059669; text-decoration: none; font-weight: 500;">Heard on the Street's Stock-Picking Series</a> <span style="color: #45556c; font-size: 12px; font-weight: 500;">(Markets)</span></div>
+                <div style="margin-bottom: 10px;">• <a href="https://www.wsj.com/articles/germany-economic-model-broken-exports-095a488d" target="_blank" style="color: #059669; text-decoration: none; font-weight: 500;">Germany's Economic Model Is Broken, and No One Has a Plan B</a> <span style="color: #45556c; font-size: 12px; font-weight: 500;">(World)</span></div>
             </div>
         </div>
 
@@ -977,6 +1009,9 @@
 
         <div class="back-to-top">
             <a href="#top">↑ Back to top</a>
+            <div class="footer-brand">
+                Curated by <a href="https://www.aitransform.us/" target="_blank">AI Transform</a>
+            </div>
         </div>
     </div>
 </body>
