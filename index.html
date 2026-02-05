@@ -127,66 +127,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
-        /* Tweet specific */
-        .tweet-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-        .tweet-rank {
-            background: #d1fae5;
-            color: #047857;
-            width: 26px;
-            height: 26px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 12px;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-        .tweet-author {
-            flex-grow: 1;
-        }
-        .tweet-name {
-            font-weight: 600;
-            color: #0f172a;
-        }
-        .tweet-handle {
-            color: #64748b;
-            font-size: 13px;
-        }
-        .tweet-handle a {
-            color: #64748b;
-            text-decoration: none;
-        }
-        .tweet-handle a:hover { color: #059669; }
-        .tweet-text {
-            margin-bottom: 12px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            color: #334155;
-        }
-        .tweet-engagement {
-            display: flex;
-            gap: 20px;
-            color: #64748b;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        .tweet-link {
-            color: #059669;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            margin-top: 10px;
-            display: inline-block;
-        }
-        .tweet-link:hover { color: #047857; }
-
-        /* HN/Reddit/WSJ specific */
+        /* Post specific */
         .post-rank {
             background: #d1fae5;
             color: #047857;
@@ -200,14 +141,6 @@
             font-size: 12px;
             margin-right: 12px;
             flex-shrink: 0;
-        }
-        .post-rank.reddit {
-            background: #d1fae5;
-            color: #047857;
-        }
-        .post-rank.wsj {
-            background: #d1fae5;
-            color: #047857;
         }
         .post-title {
             font-weight: 600;
@@ -232,19 +165,19 @@
             text-decoration: none;
         }
         .post-meta a:hover { color: #047857; }
-        .subreddit {
-            color: #059669;
-            font-weight: 600;
-        }
-        .wsj-category {
-            color: #059669;
-            font-weight: 600;
-        }
-        .wsj-description {
+        .post-description {
             color: #64748b;
             font-size: 13px;
             margin-top: 8px;
             line-height: 1.5;
+        }
+        .subreddit {
+            color: #059669;
+            font-weight: 600;
+        }
+        .news-source {
+            color: #059669;
+            font-weight: 600;
         }
 
         /* Back to top */
@@ -280,36 +213,255 @@
     <div class="container">
         <header id="top">
             <h1>AI Engineering Briefing</h1>
-            <div class="subtitle">February 05, 2026 at 06:02</div>
+            <div class="subtitle">February 05, 2026 at 06:48</div>
         </header>
 
         <nav class="toc">
             <h2>Contents</h2>
             <div class="toc-list">
                 <div class="toc-item">
-                    <span class="toc-icon">🐦</span>
-                    <a href="#twitter" class="toc-link">Twitter</a>
-                    <span class="toc-count">0 tweets</span>
+                    <span class="toc-icon">📰</span>
+                    <a href="#news" class="toc-link">AI News</a>
+                    <span class="toc-count">18 headlines</span>
                 </div>
                 <div class="toc-item">
                     <span class="toc-icon">🟠</span>
                     <a href="#hackernews" class="toc-link">Hacker News</a>
-                    <span class="toc-count">54 posts</span>
+                    <span class="toc-count">55 posts</span>
                 </div>
                 <div class="toc-item">
                     <span class="toc-icon">🔵</span>
                     <a href="#reddit" class="toc-link">Reddit</a>
-                    <span class="toc-count">85 posts</span>
+                    <span class="toc-count">84 posts</span>
                 </div>
             </div>
         </nav>
 
+        <div class="card" style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; margin-bottom: 20px; padding: 16px;">
+            <div style="margin-bottom: 12px; font-weight: 600; color: #166534; font-size: 16px;">☀️ Upcoming Sunny Days in Seattle</div>
+            <div style="font-size: 14px; line-height: 2; color: #334155;">
+                <div>• <strong style="color: #0f172a;">Thursday, Feb 05</strong>: Sunny (41-63°F)</div>
+                <div>• <strong style="color: #0f172a;">Friday, Feb 06</strong>: Partly Cloudy  (43-56°F)</div>
+            </div>
+            <div style="margin-top: 12px; font-size: 13px; color: #64748b; font-weight: 500;">Perfect days for outdoor activities!</div>
+        </div>
 
-        <section class="section" id="twitter">
+
+        <section class="section" id="news">
             <div class="section-header">
-                <span class="section-icon">🐦</span>
-                <h2 class="section-title">Twitter</h2>
-                <span class="section-count">Top 0 by engagement</span>
+                <span class="section-icon">📰</span>
+                <h2 class="section-title">AI News</h2>
+                <span class="section-count">Top 15 headlines</span>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">1</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://techcrunch.com/2026/02/04/alphabet-wont-talk-about-the-google-apple-ai-deal-even-to-investors/" target="_blank">Alphabet won’t talk about the Google-Apple AI deal, even to investors</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">TechCrunch</span>
+                            <span>🕐 15h ago</span>
+                        </div>
+                        <div class="post-description">Alphabet CEO skipped an analyst's question about Apple on the company's earnings call. </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">2</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://techcrunch.com/2026/02/04/googles-gemini-app-has-surpassed-750m-monthly-active-users/" target="_blank">Google’s Gemini app has surpassed 750M monthly active users</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">TechCrunch</span>
+                            <span>🕐 15h ago</span>
+                        </div>
+                        <div class="post-description">Google revealed a significant milestone for its Gemini app, announcing over 750 million monthly active users as it competes with ChatGPT and Meta AI.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">3</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://techcrunch.com/2026/02/04/meet-gizmo-a-tiktok-for-interactive-vibe-coded-mini-apps/" target="_blank">Meet Gizmo: A TikTok for interactive, vibe-coded mini apps</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">TechCrunch</span>
+                            <span>🕐 17h ago</span>
+                        </div>
+                        <div class="post-description">Gizmo's app is like a TikTok for vibe-coded mini apps... and it's a lot of fun. </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">4</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://techcrunch.com/2026/02/04/ai-sre-resolve-ai-confirms-125m-raise-unicorn-valuation/" target="_blank">AI SRE Resolve AI confirms $125M raise, unicorn valuation</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">TechCrunch</span>
+                            <span>🕐 17h ago</span>
+                        </div>
+                        <div class="post-description">The two-year-old startup confirms that it closed a Series A led by Lightspeed at $1 billion valuation.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">5</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://techcrunch.com/2026/02/04/amazon-to-begin-testing-ai-tools-for-film-and-tv-production-next-month/" target="_blank">Amazon to begin testing AI tools for film and TV production next month</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">TechCrunch</span>
+                            <span>🕐 17h ago</span>
+                        </div>
+                        <div class="post-description">Amazon MGM Studios will reportedly begin a closed beta program in March to test its AI tools to help with film and TV production. </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">6</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://techcrunch.com/video/a16z-just-raised-1-7b-for-ai-infrastructure-heres-where-its-going/" target="_blank">A16z just raised $1.7B for AI infrastructure. Here’s where it’s going.</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">TechCrunch</span>
+                            <span>🕐 18h ago</span>
+                        </div>
+                        <div class="post-description">Andreessen Horowitz just raised a whopping ⁠new $15 billion in funding⁠. And a $1.7 billion chunk of that is going to its ⁠infrastructure team⁠, the one responsible for some of its biggest, most prominent AI investments including Black Forrest Labs, Cursor, OpenAI, ⁠ElevenLabs⁠, Ideogram, ⁠Fal⁠ and </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">7</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://techcrunch.com/podcast/what-a16z-is-actually-funding-and-what-its-ignoring-when-it-comes-to-ai-infra/" target="_blank">What a16z is actually funding (and what it’s ignoring) when it comes to AI infra</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">TechCrunch</span>
+                            <span>🕐 18h ago</span>
+                        </div>
+                        <div class="post-description">Andreessen Horowitz just raised a whopping new $15 billion in funding. And a $1.7 billion chunk of that is going to its infrastructure team, the one responsible for some of its biggest, most prominent AI investments, including Black Forest Labs, Cursor, OpenAI, ElevenLabs, Ideogram, Fal, and dozens </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">8</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://techcrunch.com/2026/02/04/tinder-looks-to-ai-to-help-fight-swipe-fatigue-and-dating-app-burnout/" target="_blank">Tinder looks to AI to help fight ‘swipe fatigue’ and dating app burnout</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">TechCrunch</span>
+                            <span>🕐 20h ago</span>
+                        </div>
+                        <div class="post-description">Tinder is testing AI recommendations and insight from your Camera Roll for better matches. </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">9</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxNVmJ4bEVsN3JfMHh3ZnBGbkhCblVrLVh0cFRzNmtEamgtX3hCU3ZMTlhZLVVRUG9aRHExQkJJcHhIUVZ4M2xWSGJZaHlmcnVaVHJYekd0bkhYMHhRSGJZeXVOVkwxcjM5WjlVYllEcVl0QUdQYzdXc2RTazgxbDN3Si1XcHlOX1gyc2RsYkxteE5PNXdvQTROMGRVSHhvWlVqbkE?oc=5" target="_blank">3 Questions: Using AI to accelerate the discovery and design of therapeutic drugs - MIT News</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">MIT News</span>
+                            <span>🕐 20h ago</span>
+                        </div>
+                        <div class="post-description">3 Questions: Using AI to accelerate the discovery and design of therapeutic drugs  MIT News</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">10</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://techcrunch.com/2026/02/04/robloxs-4d-creation-feature-is-now-available-in-open-beta/" target="_blank">Roblox’s 4D creation feature is now available in open beta</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">TechCrunch</span>
+                            <span>🕐 21h ago</span>
+                        </div>
+                        <div class="post-description">Roblox's highly anticipated 4D creation feature has officially arrived in open beta. </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">11</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPYzFaZldPU3lCVE93QUJZblZGWlZOd21pSWRXRFV4WU1PZ3NySnJXOXlIc2l0ZFJpLUhxTlluSnhlNUI1MHM1VUFRa2JkczZTQUpDQ2tKSjREQ1hqQndfMEd3dkN5OXhKeDRlSVdBZW90MWo0Q1BuNGsyY015YWJlYTlfNVI3ZVA0S1RF?oc=5" target="_blank">How to Become an AI Engineer in 2026: A Self-Study Roadmap - KDnuggets</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">KDnuggets</span>
+                            <span>🕐 22h ago</span>
+                        </div>
+                        <div class="post-description">How to Become an AI Engineer in 2026: A Self-Study Roadmap  KDnuggets</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">12</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://techcrunch.com/2026/02/04/elevenlabs-raises-500m-from-sequioia-at-a-11-billion-valuation/" target="_blank">ElevenLabs raises $500M from Sequoia at an $11 billion valuation</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">TechCrunch</span>
+                            <span>🕐 23h ago</span>
+                        </div>
+                        <div class="post-description">ElevenLabs' valuation has raised more than three times in the last 12 months. </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">13</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://techcrunch.com/2026/02/05/elevenlabs-ceo-voice-is-the-next-interface-for-ai/" target="_blank">ElevenLabs CEO: Voice is the next interface for AI</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">TechCrunch</span>
+                            <span>🕐 7m ago</span>
+                        </div>
+                        <div class="post-description">ElevenLabs CEO argued at Web Summit Qatar that voice is the next interface for AI, as OpenAI, Google, and Apple push conversational systems into wearables, new hardware, and everyday interactions.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">14</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPWDBBT3d4ZDBYRVhCN25NMHVxaGdUc3RPY2hhWWpFRE5NdlpBZTA4cmRGaXpBLWRNbGZoN2JWSVItNnp1TUNSX24tYVpmQTdMUlBaeGRkOVdEc1hXQlRrZXo1ZjV2ZXlQd2ktemZUblhqVWZ3R3RVWUxETGwyUGt2aGV2aHJJOEVvLWl0SWdLRVpuVlBWSGxEZg?oc=5" target="_blank">Impulse AI launches no-code autonomous machine learning platform - Engineering.com</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">Engineering.com</span>
+                            <span>🕐 3h ago</span>
+                        </div>
+                        <div class="post-description">Impulse AI launches no-code autonomous machine learning platform  Engineering.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">15</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxNNTFYVWR6c2RyRnlMZVZab2xBRkpsZ2RoSmtaRFZDTDVad3ZkaEJ3dlJ6T2RTN090eXNVX0ZRNWk5NUVVTzZTU3FWVy1vbHVHM1FaRjNvd3RLZkFZNUZwTHNjVHoxWE5HNzlyTG90Zmh2NFVDMnAzN1N0NVJRY0pSalhYczBxTWJ1aGttWVlSQ1NZQzFIRTAxVG5zV19MTGppd25JdXNaQWRIZWZDYndV?oc=5" target="_blank">What is context engineering? And why it’s the new AI architecture - InfoWorld</a></div>
+                        <div class="post-meta">
+                            <span class="news-source">InfoWorld</span>
+                            <span>🕐 5h ago</span>
+                        </div>
+                        <div class="post-description">What is context engineering? And why it’s the new AI architecture  InfoWorld</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -326,10 +478,10 @@
                     <div style="flex-grow: 1;">
                         <div class="post-title"><a href="https://www.fluid.sh/" target="_blank">Claude Code for Infrastructure</a></div>
                         <div class="post-meta">
-                            <span>⬆️ 235 points</span>
-                            <span>💬 158 comments</span>
+                            <span>⬆️ 237 points</span>
+                            <span>💬 159 comments</span>
                             <span>by aspectrr</span>
-                            <span>🕐 19h ago</span>
+                            <span>🕐 20h ago</span>
                             <a href="https://news.ycombinator.com/item?id=46889703" target="_blank">discuss →</a>
                         </div>
                     </div>
@@ -342,10 +494,10 @@
                     <div style="flex-grow: 1;">
                         <div class="post-title"><a href="https://github.com/MaxBittker/rs-sdk" target="_blank">RS-SDK: Drive RuneScape with Claude Code</a></div>
                         <div class="post-meta">
-                            <span>⬆️ 113 points</span>
+                            <span>⬆️ 114 points</span>
                             <span>💬 42 comments</span>
                             <span>by evakhoury</span>
-                            <span>🕐 21h ago</span>
+                            <span>🕐 22h ago</span>
                             <a href="https://news.ycombinator.com/item?id=46888142" target="_blank">discuss →</a>
                         </div>
                     </div>
@@ -359,9 +511,9 @@
                         <div class="post-title"><a href="https://www.qodo.ai/blog/how-we-built-a-real-world-benchmark-for-ai-code-review/" target="_blank">A real-world benchmark for AI code review</a></div>
                         <div class="post-meta">
                             <span>⬆️ 49 points</span>
-                            <span>💬 24 comments</span>
+                            <span>💬 25 comments</span>
                             <span>by benocodes</span>
-                            <span>🕐 16h ago</span>
+                            <span>🕐 17h ago</span>
                             <a href="https://news.ycombinator.com/item?id=46891860" target="_blank">discuss →</a>
                         </div>
                     </div>
@@ -377,7 +529,7 @@
                             <span>⬆️ 39 points</span>
                             <span>💬 18 comments</span>
                             <span>by sberens</span>
-                            <span>🕐 17h ago</span>
+                            <span>🕐 18h ago</span>
                             <a href="https://news.ycombinator.com/item?id=46891290" target="_blank">discuss →</a>
                         </div>
                     </div>
@@ -393,7 +545,7 @@
                             <span>⬆️ 33 points</span>
                             <span>💬 10 comments</span>
                             <span>by bhaktatejas922</span>
-                            <span>🕐 16h ago</span>
+                            <span>🕐 17h ago</span>
                             <a href="https://news.ycombinator.com/item?id=46891827" target="_blank">discuss →</a>
                         </div>
                     </div>
@@ -452,13 +604,13 @@
                 <div style="display: flex; align-items: flex-start;">
                     <div class="post-rank">9</div>
                     <div style="flex-grow: 1;">
-                        <div class="post-title"><a href="https://github.com/michaelzixizhou/codag" target="_blank">Show HN: Codag – Visualize and share LLM workflows in VS Code</a></div>
+                        <div class="post-title"><a href="https://github.com/letientai299/md2cb" target="_blank">Show HN: CLI tool to convert Markdown to rich HTML clipboard content</a></div>
                         <div class="post-meta">
-                            <span>⬆️ 6 points</span>
-                            <span>💬 1 comments</span>
-                            <span>by michaelzixizhou</span>
-                            <span>🕐 20h ago</span>
-                            <a href="https://news.ycombinator.com/item?id=46888593" target="_blank">discuss →</a>
+                            <span>⬆️ 8 points</span>
+                            <span>💬 3 comments</span>
+                            <span>by letientai299</span>
+                            <span>🕐 7h ago</span>
+                            <a href="https://news.ycombinator.com/item?id=46896623" target="_blank">discuss →</a>
                         </div>
                     </div>
                 </div>
@@ -468,13 +620,13 @@
                 <div style="display: flex; align-items: flex-start;">
                     <div class="post-rank">10</div>
                     <div style="flex-grow: 1;">
-                        <div class="post-title"><a href="https://github.com/evolving-machines-lab/manus-evolve" target="_blank">Evolve SDK – Open-Source Manus Powered by Claude Code, Codex CLI, Gemini CLI</a></div>
+                        <div class="post-title"><a href="https://github.com/michaelzixizhou/codag" target="_blank">Show HN: Codag – Visualize and share LLM workflows in VS Code</a></div>
                         <div class="post-meta">
                             <span>⬆️ 6 points</span>
                             <span>💬 1 comments</span>
-                            <span>by im975</span>
-                            <span>🕐 17h ago</span>
-                            <a href="https://news.ycombinator.com/item?id=46891642" target="_blank">discuss →</a>
+                            <span>by michaelzixizhou</span>
+                            <span>🕐 21h ago</span>
+                            <a href="https://news.ycombinator.com/item?id=46888593" target="_blank">discuss →</a>
                         </div>
                     </div>
                 </div>
@@ -490,15 +642,15 @@
 
             <div class="card">
                 <div style="display: flex; align-items: flex-start;">
-                    <div class="post-rank reddit">1</div>
+                    <div class="post-rank">1</div>
                     <div style="flex-grow: 1;">
                         <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qvvtj1/waiting_every_single_day/" target="_blank">Waiting every  single day!</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/ClaudeAI</span>
-                            <span>⬆️ 960 points</span>
+                            <span>⬆️ 966 points</span>
                             <span>💬 101 comments</span>
                             <span>by u/andrewaltair</span>
-                            <span>🕐 19h ago</span>
+                            <span>🕐 20h ago</span>
                         </div>
                     </div>
                 </div>
@@ -506,12 +658,12 @@
 
             <div class="card">
                 <div style="display: flex; align-items: flex-start;">
-                    <div class="post-rank reddit">2</div>
+                    <div class="post-rank">2</div>
                     <div style="flex-grow: 1;">
                         <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qvqjz1/claude_going_at_openai_in_new_commercial_can_i/" target="_blank">Claude Going At OpenAI In New Commercial - &quot;Can I get a six pack quickly?&quot;</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/ClaudeAI</span>
-                            <span>⬆️ 486 points</span>
+                            <span>⬆️ 491 points</span>
                             <span>💬 62 comments</span>
                             <span>by u/randombsname1</span>
                             <span>🕐 23h ago</span>
@@ -522,31 +674,15 @@
 
             <div class="card">
                 <div style="display: flex; align-items: flex-start;">
-                    <div class="post-rank reddit">3</div>
-                    <div style="flex-grow: 1;">
-                        <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qvux9c/where_the_claude_ads_sting/" target="_blank">Where the Claude Ads Sting</a></div>
-                        <div class="post-meta">
-                            <span class="subreddit">r/ClaudeAI</span>
-                            <span>⬆️ 422 points</span>
-                            <span>💬 53 comments</span>
-                            <span>by u/supermanhelpsevery1</span>
-                            <span>🕐 20h ago</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div style="display: flex; align-items: flex-start;">
-                    <div class="post-rank reddit">4</div>
+                    <div class="post-rank">3</div>
                     <div style="flex-grow: 1;">
                         <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qw757o/there_are_two_types_of_claude_code_users/" target="_blank">There are two types of Claude Code users</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/ClaudeAI</span>
-                            <span>⬆️ 407 points</span>
-                            <span>💬 62 comments</span>
+                            <span>⬆️ 430 points</span>
+                            <span>💬 65 comments</span>
                             <span>by u/dataoops</span>
-                            <span>🕐 12h ago</span>
+                            <span>🕐 13h ago</span>
                         </div>
                     </div>
                 </div>
@@ -554,15 +690,15 @@
 
             <div class="card">
                 <div style="display: flex; align-items: flex-start;">
-                    <div class="post-rank reddit">5</div>
+                    <div class="post-rank">4</div>
                     <div style="flex-grow: 1;">
-                        <div class="post-title"><a href="https://reddit.com/r/LocalLLaMA/comments/1qvrc59/some_hard_lessons_learned_building_a_private_h100/" target="_blank">Some hard lessons learned building a private H100 cluster (Why PCIe servers failed us for training)</a></div>
+                        <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qvux9c/where_the_claude_ads_sting/" target="_blank">Where the Claude Ads Sting</a></div>
                         <div class="post-meta">
-                            <span class="subreddit">r/LocalLLaMA</span>
-                            <span>⬆️ 383 points</span>
-                            <span>💬 100 comments</span>
-                            <span>by u/NTCTech</span>
-                            <span>🕐 22h ago</span>
+                            <span class="subreddit">r/ClaudeAI</span>
+                            <span>⬆️ 430 points</span>
+                            <span>💬 54 comments</span>
+                            <span>by u/supermanhelpsevery1</span>
+                            <span>🕐 21h ago</span>
                         </div>
                     </div>
                 </div>
@@ -570,15 +706,15 @@
 
             <div class="card">
                 <div style="display: flex; align-items: flex-start;">
-                    <div class="post-rank reddit">6</div>
+                    <div class="post-rank">5</div>
                     <div style="flex-grow: 1;">
                         <div class="post-title"><a href="https://reddit.com/r/LocalLLaMA/comments/1qwboqn/google_research_announces_sequential_attention/" target="_blank">Google Research announces Sequential Attention: Making AI models leaner and faster without sacrificing accuracy</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/LocalLLaMA</span>
-                            <span>⬆️ 366 points</span>
+                            <span>⬆️ 395 points</span>
                             <span>💬 24 comments</span>
                             <span>by u/Fear_ltself</span>
-                            <span>🕐 9h ago</span>
+                            <span>🕐 10h ago</span>
                         </div>
                     </div>
                 </div>
@@ -586,15 +722,31 @@
 
             <div class="card">
                 <div style="display: flex; align-items: flex-start;">
-                    <div class="post-rank reddit">7</div>
+                    <div class="post-rank">6</div>
+                    <div style="flex-grow: 1;">
+                        <div class="post-title"><a href="https://reddit.com/r/LocalLLaMA/comments/1qvrc59/some_hard_lessons_learned_building_a_private_h100/" target="_blank">Some hard lessons learned building a private H100 cluster (Why PCIe servers failed us for training)</a></div>
+                        <div class="post-meta">
+                            <span class="subreddit">r/LocalLLaMA</span>
+                            <span>⬆️ 381 points</span>
+                            <span>💬 102 comments</span>
+                            <span>by u/NTCTech</span>
+                            <span>🕐 23h ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="post-rank">7</div>
                     <div style="flex-grow: 1;">
                         <div class="post-title"><a href="https://reddit.com/r/ExperiencedDevs/comments/1qw3on7/being_slaughtered_by_my_new_manager/" target="_blank">Being slaughtered by my new manager</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/ExperiencedDevs</span>
-                            <span>⬆️ 295 points</span>
-                            <span>💬 123 comments</span>
+                            <span>⬆️ 294 points</span>
+                            <span>💬 124 comments</span>
                             <span>by u/AngrySpaceKraken</span>
-                            <span>🕐 15h ago</span>
+                            <span>🕐 16h ago</span>
                         </div>
                     </div>
                 </div>
@@ -602,15 +754,15 @@
 
             <div class="card">
                 <div style="display: flex; align-items: flex-start;">
-                    <div class="post-rank reddit">8</div>
+                    <div class="post-rank">8</div>
                     <div style="flex-grow: 1;">
                         <div class="post-title"><a href="https://reddit.com/r/LocalLLaMA/comments/1qvrib9/mistralaivoxtralmini4brealtime2602_hugging_face/" target="_blank">mistralai/Voxtral-Mini-4B-Realtime-2602 · Hugging Face</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/LocalLLaMA</span>
-                            <span>⬆️ 233 points</span>
+                            <span>⬆️ 234 points</span>
                             <span>💬 26 comments</span>
                             <span>by u/jacek2023</span>
-                            <span>🕐 22h ago</span>
+                            <span>🕐 23h ago</span>
                         </div>
                     </div>
                 </div>
@@ -618,15 +770,15 @@
 
             <div class="card">
                 <div style="display: flex; align-items: flex-start;">
-                    <div class="post-rank reddit">9</div>
+                    <div class="post-rank">9</div>
                     <div style="flex-grow: 1;">
                         <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qwb0d8/claude_made_it_to_10_on_apps_store/" target="_blank">Claude made it to #10 on Apps store!</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/ClaudeAI</span>
-                            <span>⬆️ 210 points</span>
+                            <span>⬆️ 223 points</span>
                             <span>💬 20 comments</span>
                             <span>by u/Informal-Fig-7116</span>
-                            <span>🕐 9h ago</span>
+                            <span>🕐 10h ago</span>
                         </div>
                     </div>
                 </div>
@@ -634,15 +786,15 @@
 
             <div class="card">
                 <div style="display: flex; align-items: flex-start;">
-                    <div class="post-rank reddit">10</div>
+                    <div class="post-rank">10</div>
                     <div style="flex-grow: 1;">
-                        <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qw9hr4/claude_code_has_an_undocumented_persistent_memory/" target="_blank">Claude Code has an undocumented persistent memory feature</a></div>
+                        <div class="post-title"><a href="https://reddit.com/r/ClaudeAI/comments/1qwg3al/i_code_for_35_years_now_claude_code_does_99_of/" target="_blank">I code for 35+ years, now Claude Code does 99% of the actual work - am I really a “vibe coder”?</a></div>
                         <div class="post-meta">
                             <span class="subreddit">r/ClaudeAI</span>
-                            <span>⬆️ 172 points</span>
-                            <span>💬 39 comments</span>
-                            <span>by u/bitr8</span>
-                            <span>🕐 11h ago</span>
+                            <span>⬆️ 195 points</span>
+                            <span>💬 115 comments</span>
+                            <span>by u/dragosroua</span>
+                            <span>🕐 6h ago</span>
                         </div>
                     </div>
                 </div>
